@@ -66,11 +66,15 @@ Bash
 java ClienteChat
 Siga as instruções: digite um nome para o usuário e comece a enviar mensagens! O que for digitado em um cliente aparecerá no servidor e em todos os outros clientes.
 Estrutura do Projeto
+
 /projeto-chat
   ├── ServidorChat.java    // Contém a lógica do servidor central
   └── ClienteChat.java     // Contém a lógica do programa cliente
+  
 ServidorChat.java: Responsável por aceitar conexões, criar uma thread para cada cliente e retransmitir as mensagens recebidas.
+
 ClienteChat.java: Responsável por se conectar ao servidor, enviar as mensagens do usuário e exibir as mensagens recebidas de outros.
+
 Melhorias Futuras
 Este projeto é uma base. Aqui estão algumas ideias para expandi-lo:
 
