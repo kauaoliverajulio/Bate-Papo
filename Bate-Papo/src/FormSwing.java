@@ -56,16 +56,26 @@ public class FormSwing extends JFrame {
     private void enviarMensagem() {
         String texto = campoTexto.getText().trim();
         if (!texto.isEmpty()) {
-            writer.println(nome + ": " + texto);
-            campoTexto.setText("");
+            try {
+                String mensagemCriptografada = CriptografiaAES.criptografar(nome + ": " + texto);
+                writer.println(mensagemCriptografada);
+                campoTexto.setText("");
+            } catch (Exception ex) {
+                areaMensagens.append("Erro ao criptografar mensagem.\n");
+            }
         }
     }
 
     private void receberMensagens() {
-        String mensagem;
+        String mensagemCriptografada;
         try {
-            while ((mensagem = reader.readLine()) != null) {
-                areaMensagens.append(mensagem + "\n");
+            while ((mensagemCriptografada = reader.readLine()) != null) {
+                try {
+                    String mensagem = CriptografiaAES.descriptografar(mensagemCriptografada);
+                    areaMensagens.append(mensagem + "\n");
+                } catch (Exception ex) {
+                    areaMensagens.append("Erro ao descriptografar mensagem.\n");
+                }
             }
         } catch (IOException e) {
             areaMensagens.append("Conexão encerrada.\n");
