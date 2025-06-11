@@ -8,6 +8,12 @@ Projeto de chat simples em Java, com interface Swing e criptografia AES para pro
 - Envio e recebimento de mensagens em tempo real
 - Criptografia AES nas mensagens
 - Suporte a múltiplos clientes conectados
+- Lista de usuários online
+
+## Requisitos
+
+- Java 8 ou superior
+- IDE (IntelliJ IDEA, Eclipse, VS Code) ou terminal
 
 ## Como executar
 
